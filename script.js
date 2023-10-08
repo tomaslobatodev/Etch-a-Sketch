@@ -3,19 +3,19 @@ const b16 = document.querySelector("#b16")
 const b32 = document.querySelector("#b32")
 const b64 = document.querySelector("#b64")
 const clearButton = document.querySelector("#clearButton")
-const eraserButton = document.querySelector("#eraserButton");
-const drawButton = document.querySelector("#drawButton");
-const rainbowButton = document.querySelector("#rainbowButton");
+const eraserButton = document.querySelector("#eraserButton")
+const drawButton = document.querySelector("#drawButton")
+const rainbowButton = document.querySelector("#rainbowButton")
 
 let isDrawingMode = true
-let isRainbowMode = false;
+let isRainbowMode = false
 
 rainbowButton.addEventListener("click", () => {
-  isRainbowMode = true;
+  isRainbowMode = true
   rainbowButton.classList.add("selected")
   eraserButton.classList.remove("selected")
   drawButton.classList.remove("selected")
-});
+})
 
 drawButton.addEventListener("click", () => {
   isDrawingMode = true
@@ -31,7 +31,7 @@ eraserButton.addEventListener("click", () => {
   eraserButton.classList.add("selected")
   drawButton.classList.remove("selected")
   rainbowButton.classList.remove("selected")
-});
+})
 
 const size = 16
 
@@ -61,20 +61,20 @@ const rainbowColors = [
   "blue",
   "indigo",
   "violet",
-];
-let currentColorIndex = 0;
+]
+let currentColorIndex = 0
 
 function changeColor(ev) {
   if (mouseDown) {
     if (isDrawingMode) {
       if (isRainbowMode) {
-        ev.target.style.backgroundColor = rainbowColors[currentColorIndex];
-        currentColorIndex = (currentColorIndex + 1) % rainbowColors.length;
+        ev.target.style.backgroundColor = rainbowColors[currentColorIndex]
+        currentColorIndex = (currentColorIndex + 1) % rainbowColors.length
       } else {
-        ev.target.style.backgroundColor = "black"; // Default drawing color
+        ev.target.style.backgroundColor = "black"
       }
     } else {
-      ev.target.style.backgroundColor = ""; // Erase (set to transparent)
+      ev.target.style.backgroundColor = ""
     }
   }
 }
